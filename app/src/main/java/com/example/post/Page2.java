@@ -84,6 +84,8 @@ public class Page2 extends AppCompatActivity {
         input += "Password: " + textInputPassword.getEditText().getText().toString();
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Page2.this,Home.class);
+        startActivity(intent);
     }
 
 }
