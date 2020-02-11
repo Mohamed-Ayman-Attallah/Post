@@ -25,7 +25,7 @@ import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.example.post.Home.encodeImage;
+import static com.example.post.UserAdapter.encodeImage;
 
 public class Sign extends AppCompatActivity {
 

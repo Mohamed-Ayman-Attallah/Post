@@ -1,71 +1,64 @@
 package com.example.post;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
+import android.view.MenuItem;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import java.io.ByteArrayOutputStream;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
      ListView listView;
+     public  static UserAdapter adapter;
+
+  public static ArrayList<User> values = new  ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.fragment_container);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigtion_bar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
-//        Intent i = getIntent();
-//        String s = i.getStringExtra("photo");
-
-        ArrayList<User> values = new  ArrayList<>();
-        values.add(new User("Ahmed",R.drawable.a ,
-                R.drawable.ic_launcher_background , false , false , true ));
-        values.add(new User("Ahmed",R.drawable.b,
-                R.drawable.ic_launcher_background , false , false , true ));
-        values.add(new User("Ahmed", R.drawable.c,
-                R.drawable.ic_launcher_background , false , false , true ));
-        values.add(new User("Ahmed",R.drawable.d,
-                R.drawable.ic_launcher_background , false , false , true ));
-        values.add(new User("Ahmed", R.drawable.e,
-                R.drawable.ic_launcher_background , false , false , true ));
-        values.add(new User("Ahmed", R.drawable.a,
-                R.drawable.ic_launcher_background , false , false , true ));
-        UserAdapter adapter = new UserAdapter(this,R.layout.row,values);
+        values.add(new User("Mohamed",R.drawable.a ,
+                R.drawable.a , false , false , false ));
+        values.add(new User("Mohamed",R.drawable.b,
+                R.drawable.b , false , false , false ));
+        values.add(new User("Mohamed", R.drawable.c,
+                R.drawable.c , false , false , false ));
+        values.add(new User("Mohamed",R.drawable.d,
+                R.drawable.d , false , false , false ));
+        values.add(new User("Mohamed", R.drawable.e,
+                R.drawable.e , false , false , false ));
+        values.add(new User("Mohamed", R.drawable.a,
+                R.drawable.a , false , false , false ));
+      adapter = new UserAdapter(this,R.layout.row,values);
         listView.setAdapter(adapter);
     }
 
-    /**
-     * to convert string to Bitmap
-     **/
-    static public Bitmap StringToBitMap(String encodedString) {
-        try {
-            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
-        } catch (Exception e) {
-            e.getMessage();
-            return null;
+private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment selectedFragment = null;
+
+        switch (item.getItemId()){
+            case R.id.nav_home:
+            selectedFragment = new HomeFragment();
+            break;
+            case R.id.nav_favorites:
+                selectedFragment = new favoirtesFragmet();
+                break;
         }
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+        return true;
     }
-
-    /**
-     * convert Bitmap to String
-     **/
-    static public String encodeImage(Bitmap imagee) {
-
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        imagee.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        byte[] b = bytes.toByteArray();
-        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-        String encodedImage1 = encodedImage;
-        return encodedImage1;
-    }
+};
 }
 
 
