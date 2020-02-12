@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity{
      ListView listView;
      public  static UserAdapter adapter;
 
@@ -22,7 +22,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        listView = findViewById(R.id.fragment_container);
+        listView = findViewById(R.id.list_View);
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigtion_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 

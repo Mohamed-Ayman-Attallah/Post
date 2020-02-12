@@ -24,10 +24,8 @@ public class comment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
-        comments.add( new comment2("mohamed","hello :)", R.drawable.favorite, true) );
-        comments.add(new comment2("ayman","hello<3",R.drawable.favorite,false));
-        comments.add(new comment2("medo","hello",R.drawable.favorite,false));
-        comments.add(new comment2("elnos","hello",R.drawable.favorite,false));
+        comments.add( new comment2("mohamed","Wooooooo", R.drawable.favorite, false) );
+        comments.add(new comment2("ayman","عااااش",R.drawable.favorite,false));
 
         CommentAdapter = new commentAdabter(this,comments);
         commentView = findViewById(R.id.comment_list_view);

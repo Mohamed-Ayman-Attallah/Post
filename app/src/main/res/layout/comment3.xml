@@ -31,7 +31,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:civ_border_width="2dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/a"
             android:layout_marginBottom="8dp"
             app:civ_border_color="#2196F3"/>
 
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/the_comment"
-            android:text="hello every body hello every body hello every body"
+            android:text="hello every body hello every body"
             android:layout_below="@id/comment_username"
             android:layout_toRightOf="@id/comment_profile_image"
             android:layout_marginLeft="16dp"

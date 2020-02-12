@@ -11,6 +11,6 @@ import androidx.fragment.app.Fragment;
 
 public class favoirtesFragmet extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_favourt, container, false);
+        return inflater.inflate(R.layout.activity_fragment_favourite, container, false);
     }
 }

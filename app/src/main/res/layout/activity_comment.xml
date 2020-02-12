@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#fcfcfc"
     android:layout_height="match_parent"
     tools:context=".comment">
 
@@ -35,8 +36,11 @@
             android:id="@+id/comment_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/reg_edittext_style"
+            android:hint="Write a comment"
             android:layout_weight="8"
             />
+
         <ImageView
             android:id="@+id/comment_share_btn"
             android:layout_width="0dp"
